@@ -9,12 +9,16 @@ datasource db {
 }
 
 model User {
-  id   Int    @id @default(autoincrement())
-  name String
-  // projects Project[]
+  id         Int       @id @default(autoincrement())
+  name       String    @unique
+  password   String
+  is_deleted Boolean   @default(false)
+  projects   Project[]
 }
 
 model Project {
-  id   Int    @id @default(autoincrement())
-  name String
+  id     Int    @id @default(autoincrement())
+  name   String
+  userId Int
+  user   User   @relation(fields: [userId], references: [id])
 }

@@ -20,6 +20,7 @@ export class UserService {
   }
 
   async findOne(id: number) {
+    await this.isIdExists(id);
     return await this.prisma.user.findFirst({
       where: {
         id: id,

@@ -132,7 +132,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Projects\\dev-track\\generated\\prisma",
+      "value": "R:\\Programming\\dev-track\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -146,7 +146,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Projects\\dev-track\\prisma\\schema.prisma",
+    "sourceFilePath": "R:\\Programming\\dev-track\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -164,7 +164,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:Aa1234@localhost:5432/DevTrack?schema=public"
+        "value": "postgres://postgres:Aa1234@localhost:5432/postgres"
       }
     }
   },
