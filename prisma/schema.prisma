@@ -22,4 +22,13 @@ model Project{
   userId Int
   is_deleted Boolean @default(false)
   user User @relation(fields: [userId],references: [id])
+  tasks Task[]
+}
+model Task{
+  id Int @default(autoincrement())@id
+  name String
+  projectId Int
+  project Project @relation(fields: [projectId],references: [id])
+
+  is_deleted Boolean @default(false)
 }
