@@ -3,16 +3,17 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { AuthGuard } from 'src/auth/auth.guard';
 
+@UseGuards(AuthGuard)
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
@@ -26,7 +27,10 @@ export class UserController {
   findAll() {
     return this.userService.findAll();
   }
-
+  @Get('me')
+  me() {
+    return 'me';
+  }
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
