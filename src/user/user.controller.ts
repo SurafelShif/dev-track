@@ -7,11 +7,14 @@ import {
   Delete,
   Put,
   UseGuards,
+  Req,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { AuthGuard } from 'src/auth/auth.guard';
+import { Request } from 'express';
+import { AUTH_COOKIE_NAME } from 'src/common/constants';
 
 @UseGuards(AuthGuard)
 @Controller('user')
@@ -28,8 +31,10 @@ export class UserController {
     return this.userService.findAll();
   }
   @Get('me')
-  me() {
-    return 'me';
+  me(@Req() request: Request) {
+    const token = request.cookies?.[AUTH_COOKIE_NAME];
+
+    return this.userService.me(token);
   }
   @Get(':id')
   findOne(@Param('id') id: string) {

@@ -9,6 +9,7 @@ import {
 import { SignInDto } from './signin.dto';
 import { AuthService } from './auth.service';
 import { Response } from 'express';
+import { AUTH_COOKIE_NAME } from 'src/common/constants';
 
 @Controller('auth')
 export class AuthController {
@@ -17,7 +18,7 @@ export class AuthController {
   @Post('login')
   async signIn(@Body() signInData: SignInDto, @Res() response: Response) {
     const cookie = await this.authService.signIn(signInData);
-    response.cookie('' + process.env.SECRET_TOKEN, cookie, {
+    response.cookie(AUTH_COOKIE_NAME, cookie, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
     });

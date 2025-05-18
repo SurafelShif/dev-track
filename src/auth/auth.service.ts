@@ -1,13 +1,11 @@
 import {
   ConflictException,
   Injectable,
-  Res,
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { SignInDto } from './signin.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { Response } from 'express';
 
 @Injectable()
 export class AuthService {
