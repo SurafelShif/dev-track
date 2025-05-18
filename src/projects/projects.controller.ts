@@ -38,7 +38,7 @@ export class ProjectsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProjectDto: UpdateProjectDto) {
+  update(@Param('id') id: string, @Body() updateProjectDto: CreateProjectDto) {
     return this.projectsService.update(+id, updateProjectDto);
   }
 

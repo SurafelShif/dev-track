@@ -2107,18 +2107,21 @@ export namespace Prisma {
     id: number | null
     name: string | null
     userId: number | null
+    is_deleted: boolean | null
   }
 
   export type ProjectMaxAggregateOutputType = {
     id: number | null
     name: string | null
     userId: number | null
+    is_deleted: boolean | null
   }
 
   export type ProjectCountAggregateOutputType = {
     id: number
     name: number
     userId: number
+    is_deleted: number
     _all: number
   }
 
@@ -2137,18 +2140,21 @@ export namespace Prisma {
     id?: true
     name?: true
     userId?: true
+    is_deleted?: true
   }
 
   export type ProjectMaxAggregateInputType = {
     id?: true
     name?: true
     userId?: true
+    is_deleted?: true
   }
 
   export type ProjectCountAggregateInputType = {
     id?: true
     name?: true
     userId?: true
+    is_deleted?: true
     _all?: true
   }
 
@@ -2242,6 +2248,7 @@ export namespace Prisma {
     id: number
     name: string
     userId: number
+    is_deleted: boolean
     _count: ProjectCountAggregateOutputType | null
     _avg: ProjectAvgAggregateOutputType | null
     _sum: ProjectSumAggregateOutputType | null
@@ -2267,6 +2274,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     userId?: boolean
+    is_deleted?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
@@ -2274,6 +2282,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     userId?: boolean
+    is_deleted?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
@@ -2281,6 +2290,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     userId?: boolean
+    is_deleted?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["project"]>
 
@@ -2288,9 +2298,10 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     userId?: boolean
+    is_deleted?: boolean
   }
 
-  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "userId", ExtArgs["result"]["project"]>
+  export type ProjectOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "userId" | "is_deleted", ExtArgs["result"]["project"]>
   export type ProjectInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2310,6 +2321,7 @@ export namespace Prisma {
       id: number
       name: string
       userId: number
+      is_deleted: boolean
     }, ExtArgs["result"]["project"]>
     composites: {}
   }
@@ -2737,6 +2749,7 @@ export namespace Prisma {
     readonly id: FieldRef<"Project", 'Int'>
     readonly name: FieldRef<"Project", 'String'>
     readonly userId: FieldRef<"Project", 'Int'>
+    readonly is_deleted: FieldRef<"Project", 'Boolean'>
   }
     
 
@@ -3178,7 +3191,8 @@ export namespace Prisma {
   export const ProjectScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    userId: 'userId'
+    userId: 'userId',
+    is_deleted: 'is_deleted'
   };
 
   export type ProjectScalarFieldEnum = (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum]
@@ -3316,6 +3330,7 @@ export namespace Prisma {
     id?: IntFilter<"Project"> | number
     name?: StringFilter<"Project"> | string
     userId?: IntFilter<"Project"> | number
+    is_deleted?: BoolFilter<"Project"> | boolean
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
@@ -3323,6 +3338,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     userId?: SortOrder
+    is_deleted?: SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -3333,6 +3349,7 @@ export namespace Prisma {
     NOT?: ProjectWhereInput | ProjectWhereInput[]
     name?: StringFilter<"Project"> | string
     userId?: IntFilter<"Project"> | number
+    is_deleted?: BoolFilter<"Project"> | boolean
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
@@ -3340,6 +3357,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     userId?: SortOrder
+    is_deleted?: SortOrder
     _count?: ProjectCountOrderByAggregateInput
     _avg?: ProjectAvgOrderByAggregateInput
     _max?: ProjectMaxOrderByAggregateInput
@@ -3354,6 +3372,7 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"Project"> | number
     name?: StringWithAggregatesFilter<"Project"> | string
     userId?: IntWithAggregatesFilter<"Project"> | number
+    is_deleted?: BoolWithAggregatesFilter<"Project"> | boolean
   }
 
   export type UserCreateInput = {
@@ -3408,6 +3427,7 @@ export namespace Prisma {
 
   export type ProjectCreateInput = {
     name: string
+    is_deleted?: boolean
     user: UserCreateNestedOneWithoutProjectsInput
   }
 
@@ -3415,10 +3435,12 @@ export namespace Prisma {
     id?: number
     name: string
     userId: number
+    is_deleted?: boolean
   }
 
   export type ProjectUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
     user?: UserUpdateOneRequiredWithoutProjectsNestedInput
   }
 
@@ -3426,22 +3448,26 @@ export namespace Prisma {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ProjectCreateManyInput = {
     id?: number
     name: string
     userId: number
+    is_deleted?: boolean
   }
 
   export type ProjectUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ProjectUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     userId?: IntFieldUpdateOperationsInput | number
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -3565,6 +3591,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     userId?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type ProjectAvgOrderByAggregateInput = {
@@ -3576,12 +3603,14 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     userId?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type ProjectMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     userId?: SortOrder
+    is_deleted?: SortOrder
   }
 
   export type ProjectSumOrderByAggregateInput = {
@@ -3745,11 +3774,13 @@ export namespace Prisma {
 
   export type ProjectCreateWithoutUserInput = {
     name: string
+    is_deleted?: boolean
   }
 
   export type ProjectUncheckedCreateWithoutUserInput = {
     id?: number
     name: string
+    is_deleted?: boolean
   }
 
   export type ProjectCreateOrConnectWithoutUserInput = {
@@ -3785,6 +3816,7 @@ export namespace Prisma {
     id?: IntFilter<"Project"> | number
     name?: StringFilter<"Project"> | string
     userId?: IntFilter<"Project"> | number
+    is_deleted?: BoolFilter<"Project"> | boolean
   }
 
   export type UserCreateWithoutProjectsInput = {
@@ -3832,20 +3864,24 @@ export namespace Prisma {
   export type ProjectCreateManyUserInput = {
     id?: number
     name: string
+    is_deleted?: boolean
   }
 
   export type ProjectUpdateWithoutUserInput = {
     name?: StringFieldUpdateOperationsInput | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ProjectUncheckedUpdateWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ProjectUncheckedUpdateManyWithoutUserInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    is_deleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
 

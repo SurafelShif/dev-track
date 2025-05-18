@@ -130,7 +130,8 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.ProjectScalarFieldEnum = {
   id: 'id',
   name: 'name',
-  userId: 'userId'
+  userId: 'userId',
+  is_deleted: 'is_deleted'
 };
 
 exports.Prisma.SortOrder = {

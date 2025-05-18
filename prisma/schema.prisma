@@ -20,5 +20,6 @@ model Project{
   id Int @default(autoincrement())@id
   name String
   userId Int
+  is_deleted Boolean @default(false)
   user User @relation(fields: [userId],references: [id])
 }
