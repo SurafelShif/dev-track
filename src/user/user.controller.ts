@@ -17,7 +17,7 @@ import { Request } from 'express';
 import { AUTH_COOKIE_NAME } from 'src/common/constants';
 
 @UseGuards(AuthGuard)
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 

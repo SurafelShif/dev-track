@@ -9,6 +9,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from '@nestjs/jwt';
 import { ProjectsModule } from './projects/projects.module';
+import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ProjectsModule } from './projects/projects.module';
     AuthModule,
     JwtModule.register({ global: true, secret: process.env.SECRET_TOKEN }),
     ProjectsModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService, PrismaService, AuthService],
